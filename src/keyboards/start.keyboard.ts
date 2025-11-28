@@ -1,3 +1,8 @@
-import { InlineKeyboard } from 'grammy'
+import { InlineKeyboard } from 'grammy';
+import { KeyboardDataEnum, KeyboardTextEnum } from '@/enums/keybord.enums';
 
-export const startKeyboard = new InlineKeyboard().text('Support', 'support')
+
+export const startKeyboard = new InlineKeyboard().text(
+  KeyboardTextEnum.SUPPORT,
+  KeyboardDataEnum.SUPPORT,
+)

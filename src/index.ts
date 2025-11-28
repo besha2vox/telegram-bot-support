@@ -1,10 +1,14 @@
-import './commands'
-import './handlers'
+import registerHandlers from '@/handlers';
+import registerCommands from '@/commands';
 
-import { bot } from './bot'
+import { bot } from './bot';
+
+
+registerCommands()
+registerHandlers()
 
 bot.start({
   onStart: () => {
-    console.log('Support bot is running...')
+    console.info('Support bot is running...')
   },
 })

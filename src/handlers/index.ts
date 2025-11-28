@@ -1,3 +1,12 @@
-export * from './message.handler'
-export * from './operator.handler'
-export * from './user.handler'
+import { registerUserConnectSupportHandler } from './user';
+import { registerOperatorConnectHandler } from './operator';
+import { registerRoutingMessageSupportToUserHandler } from './messege';
+
+
+export * from './operator'
+
+export default function (): void {
+  registerRoutingMessageSupportToUserHandler()
+  registerUserConnectSupportHandler()
+  registerOperatorConnectHandler()
+}

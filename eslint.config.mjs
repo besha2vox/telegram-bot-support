@@ -1,5 +1,6 @@
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
+import importPlugin from 'eslint-plugin-import'
 import prettierPlugin from 'eslint-plugin-prettier'
 
 export default [
@@ -13,7 +14,7 @@ export default [
         project: './tsconfig.json',
       },
       globals: {
-        Bun: 'readonly', // глобальные переменные Bun
+        Bun: 'readonly',
         console: 'readonly',
         process: 'readonly',
       },
@@ -21,6 +22,14 @@ export default [
     plugins: {
       '@typescript-eslint': typescriptEslint,
       prettier: prettierPlugin,
+      import: importPlugin,
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
     },
     rules: {
       'no-debugger': 'error',
@@ -39,6 +48,7 @@ export default [
         'error',
         { prefer: 'type-imports', disallowTypeAnnotations: false },
       ],
+      'import/no-unresolved': 'error',
     },
     ignores: ['node_modules', '.git', '.vscode'],
   },
